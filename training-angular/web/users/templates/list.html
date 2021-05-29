@@ -1,0 +1,54 @@
+﻿<h3>Hi {{profile.Name}}!</h3>
+<button type="button" ng-click="create()">Create</button>
+<br />
+<input type="text" ng-model="search" />
+<div>
+    <label class="pull-left m-t-10 m-l-10">Items per page:</label>
+    <select ng-model="selectvalue" class="form-control" style="width:80px;">
+        <option value="15">15</option>
+        <option value="30">30</option>
+        <option value="45">45</option>
+        <option value="60">60</option>
+    </select>
+
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <!--<th>Is Active</th>-->
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in data = (users | filter :  search) | limitTo:selectvalue:selectvalue*(page-1) ">
+            <td>
+                {{user.Name | uppercase}}
+            </td>
+            <td>
+                {{user.Email}}
+            </td>
+            <td align="center">
+                <label class="switch">
+                    <input type="checkbox" ng-model="user.Status" ng-change="changeStatus(user.Id, user.Status)" ng-true-value="true" ng-false-value="false">
+                    <span class="slider round"></span>
+                </label>
+            </td>
+            <td>
+                <button ng-click="edit(user.Id)">Edit</button>
+
+            </td>
+        </tr>
+    </tbody>
+
+
+
+
+</table>
+
+<div>
+    <uib-pagination class="pagination-sm pagination" total-items="data.length" ng-model="page"
+                    previous-text="&lsaquo;" next-text="&rsaquo;" items-per-page=selectvalue></uib-pagination>
+</div>
+

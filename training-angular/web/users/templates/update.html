@@ -1,0 +1,38 @@
+﻿<form name="name" ng-submit="update()">
+    <div>
+        <label>Name</label>
+        <input type="text" ng-model="user.Name" required />
+    </div>
+    <!--<div>
+        <label>First Name</label>
+        <input type="text" ng-model="user.Firstname" required />
+    </div>-->
+    <!--<div>
+        <label>Last Name</label>
+        <input type="text" ng-model="user.Lastname" required />
+    </div>-->
+    <br />
+    <label>Is Active</label>
+    <label class="switch">
+    <input type="checkbox" ng-model="user.IsActive" ng-change="IsActive(user.IsActive)" ng-true-value="true" ng-false-value="false">
+    <span class="slider round"></span>
+    </label>
+    <br />
+    <div>
+        <label>Email</label>
+        <input type="email" ng-model="user.Email" required />
+    </div>
+    <!--<div>
+        <label>Contact Number</label>
+        <input type="text" ng-model="user.ContactNumber" required />
+    </div>-->
+    <!--<div>
+        <label>User Type</label>
+        <select class="form-control" name="Usertype" ng-model="user.UsertypeId" ng-options="c.Id as c.Name for c in usertypes | orderBy: 'Name'" ng-change="changeUsertype(user.UsertypeId)" style="width:300px;" required>
+            <option value="">-- Select an option--</option>
+        </select>
+    </div>-->
+    <br />
+    <a href="list">back</a>
+    <button type="submit">Update</button>
+</form>

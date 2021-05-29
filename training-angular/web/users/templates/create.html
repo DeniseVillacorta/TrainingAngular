@@ -1,0 +1,38 @@
+﻿<form name="name" ng-submit="create()">
+    <div>
+        <label>Username</label>
+        <input type="text" ng-model="user.Username" ng-required="true" />
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" ng-model="user.Password" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" title="Minimum eight characters, at least one uppercase letter, one special charatcter and one number" />
+    </div>
+    <!--<div>
+        <label>Confirm Password</label>
+        <input type="password" ng-model="user.ConfirmPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$" title="Minimum eight characters, at least one uppercase letter, one special character and one number" validation-error="user.ConfirmPassword != user.Password ? 'The password and its confirmation do not match' : ''" />
+    </div>-->
+    <div>
+        <label>First Name</label>
+        <input type="text" ng-model="user.Name" required />
+    </div>
+    <!--<div>
+        <label>Last Name</label>
+        <input type="text" ng-model="user.Lastname" required />
+    </div>-->
+    <div>
+        <label>Email</label>
+        <input type="email" ng-model="user.Email" required />
+    </div>
+    <!--<div>
+        <label>Contact Number</label>
+        <input type="text" ng-model="user.ContactNumber" required />
+    </div>
+    <div>
+        <label>User Type</label>
+        <select class="form-control" name="Usertype" ng-model="user.UsertypeId" ng-options="c.Id as c.Name for c in usertypes | orderBy: 'Name'" ng-change="changeUsertype(user.UsertypeId)" style="width:300px;" required>
+            <option value="">-- Select an option--</option>
+        </select>
+    </div>-->
+    <a href="list">back</a>
+    <button type="submit">Create</button>
+</form>
