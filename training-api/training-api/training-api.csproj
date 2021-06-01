@@ -1,0 +1,1004 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F3A0D704-25B5-4FDD-8822-1BBCACA2F528}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>training_api</RootNamespace>
+    <AssemblyName>training-api</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.11.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.11.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.11.1\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.11.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.11.1\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.4.2.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Postmark, Version=4.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Postmark.4.5.2\lib\netstandard2.0\Postmark.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.11.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.11.1\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Utility\AuthTokenParser.cs" />
+    <Compile Include="App_Utility\CodeUtility.cs" />
+    <Compile Include="App_Utility\Crypto.cs" />
+    <Compile Include="App_Utility\Data\StudentUtils.cs" />
+    <Compile Include="App_Utility\Data\UsersUtils.cs" />
+    <Compile Include="App_Utility\ErrorLogs.cs" />
+    <Compile Include="App_Utility\JwtManager.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Authorization\Authorizations.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBInterface.cs" />
+    <Compile Include="Models\DTO\StudentDTO.cs" />
+    <Compile Include="Models\DTO\UsersDTO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
+    <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Scripts\bootstrap.js" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Scripts\bootstrap.min.js" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages\bootstrap.3.4.1\content\Scripts\bootstrap.js" />
+    <Content Include="packages\bootstrap.3.4.1\content\Scripts\bootstrap.min.js" />
+    <Content Include="packages\bootstrap.3.4.1\LICENSE.txt" />
+    <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="packages\jQuery.3.4.1\Tools\jquery-3.4.1.intellisense.js" />
+    <Content Include="packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.xml" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\system.web.optimization.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\netstandard2.0\System.Net.Http.Formatting.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\netstandard2.0\System.Net.Http.Formatting.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\portable-wp8%252Bnetcore45%252Bnet45%252Bwp81%252Bwpa81\System.Net.Http.Formatting.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\portable-wp8%252Bnetcore45%252Bnet45%252Bwp81%252Bwpa81\System.Net.Http.Formatting.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Win32.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Console.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Globalization.Calendars.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.Compression.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.Compression.ZipFile.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Net.Http.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Net.Sockets.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Text.Encoding.CodePages.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.ValueTuple.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.ReaderWriter.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XmlDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.XDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\lib\net45\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\lib\net45\Microsoft.IdentityModel.JsonWebTokens.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\lib\net461\Microsoft.IdentityModel.JsonWebTokens.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\lib\net472\Microsoft.IdentityModel.JsonWebTokens.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\lib\netstandard2.0\Microsoft.IdentityModel.JsonWebTokens.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\lib\netstandard2.0\Microsoft.IdentityModel.JsonWebTokens.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.Logging.6.11.1\lib\net45\Microsoft.IdentityModel.Logging.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.Logging.6.11.1\lib\net45\Microsoft.IdentityModel.Logging.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.Logging.6.11.1\lib\net461\Microsoft.IdentityModel.Logging.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.Logging.6.11.1\lib\net461\Microsoft.IdentityModel.Logging.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.Logging.6.11.1\lib\net472\Microsoft.IdentityModel.Logging.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.Logging.6.11.1\lib\net472\Microsoft.IdentityModel.Logging.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.Logging.6.11.1\lib\netstandard2.0\Microsoft.IdentityModel.Logging.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.Logging.6.11.1\lib\netstandard2.0\Microsoft.IdentityModel.Logging.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.Tokens.6.11.1\lib\net45\Microsoft.IdentityModel.Tokens.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.Tokens.6.11.1\lib\net45\Microsoft.IdentityModel.Tokens.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.Tokens.6.11.1\lib\net461\Microsoft.IdentityModel.Tokens.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.Tokens.6.11.1\lib\net461\Microsoft.IdentityModel.Tokens.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.Tokens.6.11.1\lib\net472\Microsoft.IdentityModel.Tokens.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.Tokens.6.11.1\lib\net472\Microsoft.IdentityModel.Tokens.xml" />
+    <Content Include="packages\Microsoft.IdentityModel.Tokens.6.11.1\lib\netstandard2.0\Microsoft.IdentityModel.Tokens.dll" />
+    <Content Include="packages\Microsoft.IdentityModel.Tokens.6.11.1\lib\netstandard2.0\Microsoft.IdentityModel.Tokens.xml" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="packages\Modernizr.2.8.3\Content\Scripts\modernizr-2.8.3.js" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Postmark.4.5.2\lib\netstandard2.0\Postmark.dll" />
+    <Content Include="packages\System.IdentityModel.Tokens.Jwt.6.11.1\lib\net45\System.IdentityModel.Tokens.Jwt.dll" />
+    <Content Include="packages\System.IdentityModel.Tokens.Jwt.6.11.1\lib\net45\System.IdentityModel.Tokens.Jwt.xml" />
+    <Content Include="packages\System.IdentityModel.Tokens.Jwt.6.11.1\lib\net461\System.IdentityModel.Tokens.Jwt.dll" />
+    <Content Include="packages\System.IdentityModel.Tokens.Jwt.6.11.1\lib\net461\System.IdentityModel.Tokens.Jwt.xml" />
+    <Content Include="packages\System.IdentityModel.Tokens.Jwt.6.11.1\lib\net472\System.IdentityModel.Tokens.Jwt.dll" />
+    <Content Include="packages\System.IdentityModel.Tokens.Jwt.6.11.1\lib\net472\System.IdentityModel.Tokens.Jwt.xml" />
+    <Content Include="packages\System.IdentityModel.Tokens.Jwt.6.11.1\lib\netstandard2.0\System.IdentityModel.Tokens.Jwt.dll" />
+    <Content Include="packages\System.IdentityModel.Tokens.Jwt.6.11.1\lib\netstandard2.0\System.IdentityModel.Tokens.Jwt.xml" />
+    <Content Include="packages\System.IO.4.3.0\dotnet_library_license.txt" />
+    <Content Include="packages\System.IO.4.3.0\lib\net462\System.IO.dll" />
+    <Content Include="packages\System.IO.4.3.0\ref\net462\System.IO.dll" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\de\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\es\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\fr\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\it\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\ja\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\ko\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\ru\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\System.IO.dll" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\zh-hans\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netcore50\zh-hant\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\de\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\es\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\fr\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\it\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\ja\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\ko\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\ru\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\System.IO.dll" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\zh-hans\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.0\zh-hant\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\de\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\es\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\fr\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\it\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\ja\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\ko\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\ru\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\System.IO.dll" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\zh-hans\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.3\zh-hant\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\de\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\es\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\fr\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\it\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\ja\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\ko\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\ru\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\System.IO.dll" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\zh-hans\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ref\netstandard1.5\zh-hant\System.IO.xml" />
+    <Content Include="packages\System.IO.4.3.0\ThirdPartyNotices.txt" />
+    <Content Include="packages\System.Net.Http.4.3.4\dotnet_library_license.txt" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\net46\System.Net.Http.dll" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\netcore50\System.Net.Http.dll" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\netstandard1.1\System.Net.Http.dll" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\netstandard1.3\System.Net.Http.dll" />
+    <Content Include="packages\System.Net.Http.4.3.4\runtimes\unix\lib\netstandard1.6\System.Net.Http.dll" />
+    <Content Include="packages\System.Net.Http.4.3.4\runtimes\win\lib\net46\System.Net.Http.dll" />
+    <Content Include="packages\System.Net.Http.4.3.4\runtimes\win\lib\netcore50\System.Net.Http.dll" />
+    <Content Include="packages\System.Net.Http.4.3.4\runtimes\win\lib\netstandard1.3\System.Net.Http.dll" />
+    <Content Include="packages\System.Net.Http.4.3.4\ThirdPartyNotices.txt" />
+    <Content Include="packages\System.Runtime.4.3.0\dotnet_library_license.txt" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\net462\System.Runtime.dll" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\de\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\es\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\fr\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\it\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\ja\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\ko\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\ru\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\System.Runtime.dll" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\zh-hans\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netcore50\zh-hant\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\de\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\es\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\fr\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\it\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\ja\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\ko\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\ru\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\System.Runtime.dll" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\zh-hans\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.0\zh-hant\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\de\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\es\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\fr\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\it\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\ja\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\ko\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\ru\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\System.Runtime.dll" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\zh-hans\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.2\zh-hant\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\de\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\es\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\fr\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\it\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\ja\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\ko\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\ru\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\System.Runtime.dll" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\zh-hans\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.3\zh-hant\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\de\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\es\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\fr\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\it\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\ja\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\ko\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\ru\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\System.Runtime.dll" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\zh-hans\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\netstandard1.5\zh-hant\System.Runtime.xml" />
+    <Content Include="packages\System.Runtime.4.3.0\ThirdPartyNotices.txt" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\dotnet_library_license.txt" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net46\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\net461\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\net463\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\net46\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\netstandard1.3\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\netstandard1.4\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\netstandard1.6\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\runtimes\osx\lib\netstandard1.6\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\runtimes\unix\lib\netstandard1.6\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\runtimes\win\lib\net461\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\runtimes\win\lib\net463\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\runtimes\win\lib\net46\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\runtimes\win\lib\netcore50\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\runtimes\win\lib\netstandard1.6\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ThirdPartyNotices.txt" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\dotnet_library_license.txt" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\net46\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\de\System.Security.Cryptography.Encoding.xml" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\es\System.Security.Cryptography.Encoding.xml" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\fr\System.Security.Cryptography.Encoding.xml" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\it\System.Security.Cryptography.Encoding.xml" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\ja\System.Security.Cryptography.Encoding.xml" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\ko\System.Security.Cryptography.Encoding.xml" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\ru\System.Security.Cryptography.Encoding.xml" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\System.Security.Cryptography.Encoding.xml" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\zh-hans\System.Security.Cryptography.Encoding.xml" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\netstandard1.3\zh-hant\System.Security.Cryptography.Encoding.xml" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\runtimes\unix\lib\netstandard1.3\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\runtimes\win\lib\net46\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\runtimes\win\lib\netstandard1.3\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ThirdPartyNotices.txt" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\dotnet_library_license.txt" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\lib\netstandard1.3\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\ref\net46\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\ref\netstandard1.3\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\ThirdPartyNotices.txt" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\dotnet_library_license.txt" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net46\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\net461\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\net46\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\de\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\es\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\fr\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\it\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\ja\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\ko\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\ru\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\zh-hans\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.3\zh-hant\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\de\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\es\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\fr\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\it\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\ja\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\ko\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\ru\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\zh-hans\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\netstandard1.4\zh-hant\System.Security.Cryptography.X509Certificates.xml" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\runtimes\unix\lib\netstandard1.6\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\runtimes\win\lib\net461\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\runtimes\win\lib\net46\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\runtimes\win\lib\netcore50\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\runtimes\win\lib\netstandard1.6\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ThirdPartyNotices.txt" />
+    <Content Include="packages\WebGrease.1.6.0\lib\WebGrease.dll" />
+    <Content Include="packages\WebGrease.1.6.0\tools\WG.EXE" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="packages\Antlr.3.5.0.2\.signature.p7s" />
+    <Content Include="packages\Antlr.3.5.0.2\Antlr.3.5.0.2.nupkg" />
+    <Content Include="packages\bootstrap.3.4.1\.signature.p7s" />
+    <Content Include="packages\bootstrap.3.4.1\bootstrap.3.4.1.nupkg" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="packages\jQuery.3.4.1\.signature.p7s" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.map" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="packages\jQuery.3.4.1\jQuery.3.4.1.nupkg" />
+    <Content Include="packages\jQuery.3.4.1\Tools\common.ps1" />
+    <Content Include="packages\jQuery.3.4.1\Tools\install.ps1" />
+    <Content Include="packages\jQuery.3.4.1\Tools\uninstall.ps1" />
+    <Content Include="packages\Microsoft.AspNet.Cors.5.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Cors.5.2.7\Microsoft.AspNet.Cors.5.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.Mvc.5.2.7\Microsoft.AspNet.Mvc.5.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Razor.3.2.7\Microsoft.AspNet.Razor.3.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\Microsoft.AspNet.Web.Optimization.1.1.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.5.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.5.2.7\Microsoft.AspNet.WebApi.5.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.5.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.5.2.7\Microsoft.AspNet.WebApi.Client.5.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Core.5.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Core.5.2.7\Content\web.config.transform" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Core.5.2.7\Microsoft.AspNet.WebApi.Core.5.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ApiDescriptionExtensions.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\App_Start\HelpPageConfig.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Controllers\HelpController.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\HelpPage.css.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\HelpPageAreaRegistration.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\HelpPageConfigurationExtensions.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\ModelDescription.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\ParameterDescription.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Models\HelpPageApiModel.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\SampleGeneration\ImageSample.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\SampleGeneration\InvalidSample.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\SampleGeneration\ObjectGenerator.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\SampleGeneration\SampleDirection.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\SampleGeneration\TextSample.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\Api.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\Index.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Help\ResourceModel.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Shared\_Layout.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\Web.config" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\Views\_ViewStart.cshtml.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Content\Areas\HelpPage\XmlDocumentationProvider.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.HelpPage.5.2.7\Microsoft.AspNet.WebApi.HelpPage.5.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\Microsoft.AspNet.WebApi.WebHost.5.2.7.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\Content\Web.config.install.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\Content\Web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.AspNet.WebPages.3.2.7\Microsoft.AspNet.WebPages.3.2.7.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\.signature.p7s" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\net45\install.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\net45\uninstall.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Managed.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\.signature.p7s" />
+    <Content Include="packages\Microsoft.IdentityModel.JsonWebTokens.6.11.1\Microsoft.IdentityModel.JsonWebTokens.6.11.1.nupkg" />
+    <Content Include="packages\Microsoft.IdentityModel.Logging.6.11.1\.signature.p7s" />
+    <Content Include="packages\Microsoft.IdentityModel.Logging.6.11.1\Microsoft.IdentityModel.Logging.6.11.1.nupkg" />
+    <Content Include="packages\Microsoft.IdentityModel.Tokens.6.11.1\.signature.p7s" />
+    <Content Include="packages\Microsoft.IdentityModel.Tokens.6.11.1\Microsoft.IdentityModel.Tokens.6.11.1.nupkg" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\Microsoft.Web.Infrastructure.1.0.0.0.nupkg" />
+    <Content Include="packages\Modernizr.2.8.3\.signature.p7s" />
+    <Content Include="packages\Modernizr.2.8.3\Modernizr.2.8.3.nupkg" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\common.ps1" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\install.ps1" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\uninstall.ps1" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\.signature.p7s" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\LICENSE.md" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\Newtonsoft.Json.12.0.2.nupkg" />
+    <Content Include="packages\Postmark.4.5.2\.signature.p7s" />
+    <Content Include="packages\Postmark.4.5.2\Postmark.4.5.2.nupkg" />
+    <Content Include="packages\System.IdentityModel.Tokens.Jwt.6.11.1\.signature.p7s" />
+    <Content Include="packages\System.IdentityModel.Tokens.Jwt.6.11.1\System.IdentityModel.Tokens.Jwt.6.11.1.nupkg" />
+    <Content Include="packages\System.IO.4.3.0\.signature.p7s" />
+    <Content Include="packages\System.IO.4.3.0\lib\MonoAndroid10\_._" />
+    <Content Include="packages\System.IO.4.3.0\lib\MonoTouch10\_._" />
+    <Content Include="packages\System.IO.4.3.0\lib\net45\_._" />
+    <Content Include="packages\System.IO.4.3.0\lib\portable-net45+win8+wp8+wpa81\_._" />
+    <Content Include="packages\System.IO.4.3.0\lib\win8\_._" />
+    <Content Include="packages\System.IO.4.3.0\lib\wp80\_._" />
+    <Content Include="packages\System.IO.4.3.0\lib\wpa81\_._" />
+    <Content Include="packages\System.IO.4.3.0\lib\xamarinios10\_._" />
+    <Content Include="packages\System.IO.4.3.0\lib\xamarinmac20\_._" />
+    <Content Include="packages\System.IO.4.3.0\lib\xamarintvos10\_._" />
+    <Content Include="packages\System.IO.4.3.0\lib\xamarinwatchos10\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\MonoAndroid10\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\MonoTouch10\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\net45\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\portable-net45+win8+wp8+wpa81\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\win8\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\wp80\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\wpa81\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\xamarinios10\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\xamarinmac20\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\xamarintvos10\_._" />
+    <Content Include="packages\System.IO.4.3.0\ref\xamarinwatchos10\_._" />
+    <Content Include="packages\System.IO.4.3.0\System.IO.4.3.0.nupkg" />
+    <Content Include="packages\System.Net.Http.4.3.4\.signature.p7s" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\monoandroid10\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\monotouch10\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\net45\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\portable-net45+win8+wpa81\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\win8\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\wpa81\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\xamarinios10\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\Xamarinmac20\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\xamarintvos10\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\lib\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\monoandroid10\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\monotouch10\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\net45\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\portable-net45+win8+wpa81\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\win8\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\wpa81\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\xamarinios10\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\Xamarinmac20\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\xamarintvos10\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\ref\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Net.Http.4.3.4\System.Net.Http.4.3.4.nupkg" />
+    <Content Include="packages\System.Runtime.4.3.0\.signature.p7s" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\MonoAndroid10\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\MonoTouch10\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\net45\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\portable-net45+win8+wp80+wpa81\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\win8\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\wp80\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\wpa81\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\xamarinios10\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\xamarinmac20\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\xamarintvos10\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\lib\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\MonoAndroid10\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\MonoTouch10\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\net45\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\portable-net45+win8+wp80+wpa81\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\win8\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\wp80\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\wpa81\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\xamarinios10\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\xamarinmac20\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\xamarintvos10\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\ref\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Runtime.4.3.0\System.Runtime.4.3.0.nupkg" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\.signature.p7s" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\lib\MonoAndroid10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\lib\MonoTouch10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\lib\xamarinios10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\lib\xamarinmac20\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\lib\xamarintvos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\lib\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\MonoAndroid10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\MonoTouch10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\xamarinios10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\xamarinmac20\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\xamarintvos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\ref\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Algorithms.4.3.0\System.Security.Cryptography.Algorithms.4.3.0.nupkg" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\.signature.p7s" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\lib\MonoAndroid10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\lib\MonoTouch10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\lib\xamarinios10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\lib\xamarinmac20\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\lib\xamarintvos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\lib\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\MonoAndroid10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\MonoTouch10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\xamarinios10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\xamarinmac20\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\xamarintvos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\ref\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Encoding.4.3.0\System.Security.Cryptography.Encoding.4.3.0.nupkg" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\.signature.p7s" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\lib\MonoAndroid10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\lib\MonoTouch10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\lib\xamarinios10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\lib\xamarinmac20\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\lib\xamarintvos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\lib\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\ref\MonoAndroid10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\ref\MonoTouch10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\ref\xamarinios10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\ref\xamarinmac20\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\ref\xamarintvos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\ref\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.Primitives.4.3.0\System.Security.Cryptography.Primitives.4.3.0.nupkg" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\.signature.p7s" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\MonoAndroid10\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\MonoTouch10\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\xamarinios10\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\xamarinmac20\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\xamarintvos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\MonoAndroid10\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\MonoTouch10\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\xamarinios10\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\xamarinmac20\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\xamarintvos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\ref\xamarinwatchos10\_._" />
+    <Content Include="packages\System.Security.Cryptography.X509Certificates.4.3.0\System.Security.Cryptography.X509Certificates.4.3.0.nupkg" />
+    <Content Include="packages\WebGrease.1.6.0\.signature.p7s" />
+    <Content Include="packages\WebGrease.1.6.0\WebGrease.1.6.0.nupkg" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Logs\Error\202105\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49423</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49423/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
